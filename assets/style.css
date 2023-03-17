@@ -1,0 +1,185 @@
+/* ------------------------------------ IMPORT ----------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Koulen&family=Russo+One&display=swap');
+
+:root{
+    --color-white:#fff;
+    --color-Black:#000;
+    --color-Blue:#e0e0e03d;
+
+    --machine: 'Courier Prime', monospace;;
+    --koulen:'Koulen', cursive;
+    --text:'Josefin Sans', sans-serif;
+    --text2: 'Russo One', sans-serif;
+
+}
+
+/* -------------------- BASE -------------------- */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/plants.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+main
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+/* -------------------- Components -------------------- */
+.container-primario
+{
+    width: 80%;
+    height: 50%;
+    max-height:50%;
+    min-height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(23px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.content-input {
+    position: relative;
+    width: 70%;
+    height: 4rem;
+    overflow: hidden;
+    border-radius: 35px;
+    background: var(--color-Blue);
+    box-shadow: 10px 10px 20px -12px rgba(255, 255, 255, 0.627);
+    backdrop-filter: blur(10px) saturate(200%);
+}
+input
+{
+    color: var(--color-Black);
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: medium;
+    font-weight: bold;
+    padding: 1.5em;
+}
+.content-input.warning
+{
+    border: 1px solid rgb(192, 86, 86);
+    animation: shake .5s;
+}
+.warningText
+{
+    display: none;
+    color: red;
+    font-family: var(--text);
+    position: absolute;
+    top: 5%;
+}
+.warningText.active
+{
+    display: flex;
+}
+input::placeholder 
+{
+    color: var(--color-Black);
+}
+button
+{
+    position: absolute;
+    right: .5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background:rgba(255, 255, 255, 0.071);
+    border-radius: 35px;
+    width: 6rem;
+    height: 90%;
+    border: none;
+    cursor: pointer;
+    transition: all .5s;
+    font-family:var(--koulen);
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+button:hover
+{
+    background: rgba(15, 66, 2, 0.618);
+    width: 7rem;
+
+}
+.container-secundario
+{
+    width: 80%;
+    height: 30%;
+    max-height:30%;
+    min-height: 15rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    opacity: 0;
+}
+.container-secundario.active
+{
+    opacity: 1;
+}
+.result
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem .5em;
+    background: var(--color-Blue);
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(23px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.1);
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-family: var(--text);
+}
+@keyframes shake
+{
+    0%{ transform: translateX(0px);}
+    20%{ transform: translateX(10px);}
+    40%{ transform: translateX(-10px);}
+    60%{ transform: translateX(10px);}
+    80%{ transform: translateX(-10px);}
+    100%{ transform: translateX(0px);}
+
+}
+
+@media(max-width:600px){
+    .container-primario,.container-secundario
+    {
+        width: 100%;
+    }
+    .container-primario
+    {
+        height: 30%;
+        min-height: 20rem;
+    }
+
+}
